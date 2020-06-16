@@ -9,12 +9,18 @@ h3{
     font-size: 0.9rem;
     margin: 0.25rem 0rem;
 }
+hr{
+    margin: 0.25rem;
+}
 #body-header{
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     color: gray;
     font-size: 1.5rem;
     letter-spacing: 0.1rem;
+}
+#description{
+    padding: 0.3rem;
 }
 #description:hover{
     background-color: lightgray;
@@ -33,17 +39,25 @@ h3{
 }
 #category{
     font-family: sans-serif;
-    color: gray;
+    color: dimgray;
     font-size: 1rem;
     font-weight: bold;
-    width: 50%;
+    width: 53%;
+    border-right: 0.1rem solid lightgray;
+    padding: 0.3rem;
 }
 #category:hover{
     background-color: lightgray;
     cursor: pointer;
 }
+#drop-down-button{
+    font-size: 1.2rem;
+    position: relative;
+    left: 40%;
+}
 #due-date{
-    width: 50%;
+    width: 47%;
+    padding: 0.3rem 0.3rem 0.3rem 3rem;
 }
 #due-date:hover{
     background-color: lightgray;
@@ -54,4 +68,43 @@ h3{
     font-family: sans-serif;
     color: dimgray;
     background-color: transparent;
+}
+#buttons-container{
+    padding: 1rem 5rem;
+    display: flex;
+    justify-content: center;
+}
+#add-task-button{
+    height: 3.1rem;
+    width: 10rem;
+    margin: 0.2rem;
+    border: none;
+    background-color: #444444;
+    border-radius: 0.15rem;
+    color: white;
+    font-size: 1rem;
+}
+#add-task-button:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+    border: 1px solid gray;
+    box-shadow: 0px 0px 3px 0.2px black;
+    transition: all ease-in-out 0.3s;
+}
+#delete-task-button{
+    height:3.1rem;
+    width: 10rem;
+    margin: 0.2rem;
+    border: none;
+    background-color: #EE351E;
+    border-radius: 0.15rem;
+    color: white;
+    font-size: 1rem;
+}
+#delete-task-button:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+    border: 1px solid darkred;
+    box-shadow: 0px 0px 3px 0.2px black;
+    transition: all ease-in-out 0.3s;
 }
