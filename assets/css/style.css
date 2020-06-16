@@ -21,6 +21,7 @@ hr{
 }
 #description{
     padding: 0.3rem;
+    border-top: 1.5px solid lightgray;
 }
 #description:hover{
     background-color: lightgray;
@@ -36,6 +37,7 @@ hr{
 #multisection-container{
     display: flex;
     justify-content: space-between;
+    border-top: 1.5px solid lightgray;
 }
 #category{
     font-family: sans-serif;
@@ -44,7 +46,7 @@ hr{
     font-weight: bold;
     width: 53%;
     border-right: 0.1rem solid lightgray;
-    padding: 0.3rem;
+    padding: 0.5rem;
 }
 #category:hover{
     background-color: lightgray;
@@ -57,7 +59,7 @@ hr{
 }
 #due-date{
     width: 47%;
-    padding: 0.3rem 0.3rem 0.3rem 3rem;
+    padding: 0.5rem 0.3rem 0.5rem 2.5rem;
 }
 #due-date:hover{
     background-color: lightgray;
@@ -70,9 +72,10 @@ hr{
     background-color: transparent;
 }
 #buttons-container{
-    padding: 1rem 5rem;
+    padding: 2rem 5rem;
     display: flex;
     justify-content: center;
+    border-top: 1.5px solid lightgray;
 }
 #add-task-button{
     height: 3.1rem;
@@ -88,7 +91,7 @@ hr{
     cursor: pointer;
     transform: scale(1.01);
     border: 1px solid gray;
-    box-shadow: 0px 0px 3px 0.2px black;
+    box-shadow: 0px 0px 3px 0.2px rgb(84, 169, 238);
     transition: all ease-in-out 0.3s;
 }
 #delete-task-button{
@@ -105,6 +108,47 @@ hr{
     cursor: pointer;
     transform: scale(1.01);
     border: 1px solid darkred;
-    box-shadow: 0px 0px 3px 0.2px black;
+    box-shadow: 0px 0px 3px 0.2px rgb(84, 169, 238);
+    transition: all ease-in-out 0.3s;
+}
+#cards-container{
+    display: flex;
+    align-items: center;
+    border-top: 1.5px solid lightgray;
+    padding: 0.5rem 0rem;
+}
+#cards-container input{
+    cursor: pointer;
+}
+#card-info{
+    position: relative;
+    left: 5%;
+    line-height: 0.5rem;
+    margin: 0.5rem 0rem;
+}
+#card-info h3{
+    font-size: 1rem;
+}
+#card-info p{
+    color: #BFC1C2;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+}
+#card-button{
+    position: relative;
+    left: 65%;
+    height: 2.5rem;
+    width: 7rem;
+    margin-top: -1.5rem;
+    color: white;
+    background-color: purple;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+}
+#card-button:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+    box-shadow: 0px 0px 3px 0.5px rgb(84, 169, 238);
     transition: all ease-in-out 0.3s;
 }
