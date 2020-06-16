@@ -1,0 +1,57 @@
+body{
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+h3{
+    color: gray;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    margin: 0.25rem 0rem;
+}
+#body-header{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: gray;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+}
+#description:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+#description input{
+    font-size: 1.1rem;
+    width: 90%;
+    padding: 0.4rem;
+    border: none;
+    background-color: transparent;
+}
+#multisection-container{
+    display: flex;
+    justify-content: space-between;
+}
+#category{
+    font-family: sans-serif;
+    color: gray;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 50%;
+}
+#category:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+#due-date{
+    width: 50%;
+}
+#due-date:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+#due-date input{
+    border: none;
+    font-family: sans-serif;
+    color: dimgray;
+    background-color: transparent;
+}
