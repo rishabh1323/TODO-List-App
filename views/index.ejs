@@ -12,42 +12,54 @@
         <header id="body-header">
             <h1>TODO App</h1>
         </header>
-        <section id="description">
-            <h3>DESCRIPTION</h3>
-            <input type="text" placeholder="What do you need to do?">
-        </section>
-        <div id="multisection-container">
-            <section id="category">
-                <h3>CATEGORY</h3>
-                <span>Choose a category</span>
-                <i class="fas fa-sort-down" id="drop-down-button"></i>
+        <form action="/new-item" method="POST">
+            <section id="description">
+                <h3>DESCRIPTION</h3>
+                <input type="text" name="description" placeholder="What do you need to do?" required>
             </section>
-            <section id="due-date">
-                <h3>DUE DATE</h3>    
-                <input type="date" placeholder="dd/mm/yyyy">
-            </section>
-        </div>
-        <div id="buttons-container">
+            <div id="multisection-container">
+                <section id="category">
+                    <h3>CATEGORY</h3>
+                    <span>Choose a category</span>
+                    <i class="fas fa-sort-down" id="drop-down-button"></i>
+                </section>
+                <section id="due-date">
+                    <h3>DUE DATE</h3>    
+                    <input type="date" name="due_date" placeholder="dd/mm/yyyy" required>
+                </section>
+            </div>
             <button type="submit" id="add-task-button"> 
                 <i class="fas fa-plus"></i>
                 ADD TASK
             </button>
+        </form>
+        <a href="/delete-item">
             <button type="submit" id="delete-task-button">
                 <i class="fas fa-trash-alt"></i>
                 DELETE TASKS
             </button>
-
-        </div>
+        </a>
+        <% var monthNames = ["JAN", "FEB", "MAR", "APR", "MaAY", "JUN", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"]; %>
         <div id="cards-container">
-            <input type="checkbox">
-            <div id="card-info">
-                <h3>Add a task</h3>
-                <p>
-                    <i class="far fa-calendar-alt"></i>
-                    No Deadline
-                </p>
-            </div>
-            <button type="submit" id="card-button"> TASK </button>
+            <% for(let i of todo_list) {%>
+                <div id="card">
+                    <div style="display: flex;">
+                        <input type="checkbox" name="isSelected" style="margin-top: 15%;" id="checkbox-button">
+                        <div id="card-info">
+                            <h3> <%= i.description %> </h3>
+                            <p>
+                                <i class="far fa-calendar-alt"></i>
+                                <%= monthNames[i.due_date.getMonth()] %>
+                                <%= i.due_date.getDate() %>
+                                <span>, &nbsp; </span>
+                                <%= i.due_date.getFullYear() %>
+                            </p>
+                        </div>
+                    </div>
+                    <button type="submit" id="card-button"> TASK </button>
+                </div>
+            <% } %>    
         </div>
+        <script src="/js/delete_items.js"></script>
     </body>
 </html>
