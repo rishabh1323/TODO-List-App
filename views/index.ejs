@@ -1,65 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            <%= title %>
-        </title>
-        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    </head>
-    <body>
-        <header id="body-header">
-            <h1>TODO App</h1>
-        </header>
-        <form action="/new-item" method="POST">
-            <section id="description">
-                <h3>DESCRIPTION</h3>
-                <input type="text" name="description" placeholder="What do you need to do?" required>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="https://user-images.githubusercontent.com/1711854/28282651-29665d66-6af9-11e7-96d1-e9346a836007.png" type="image/x-icon">
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+    <header id="body-header">
+        <h1>TODO App</h1>
+    </header>
+    <form action="/new-item" method="POST">
+        <section id="description">
+            <h3>DESCRIPTION</h3>
+            <input type="text" name="description" placeholder="What do you need to do?" required>
+        </section>
+        <div id="multisection-container">
+            <section id="category">
+                <h3>CATEGORY</h3>
+                <span>Choose a category</span>
+                <i class="fas fa-sort-down" id="drop-down-button"></i>
             </section>
-            <div id="multisection-container">
-                <section id="category">
-                    <h3>CATEGORY</h3>
-                    <span>Choose a category</span>
-                    <i class="fas fa-sort-down" id="drop-down-button"></i>
-                </section>
-                <section id="due-date">
-                    <h3>DUE DATE</h3>    
-                    <input type="date" name="due_date" placeholder="dd/mm/yyyy" required>
-                </section>
-            </div>
-            <button type="submit" id="add-task-button"> 
-                <i class="fas fa-plus"></i>
-                ADD TASK
-            </button>
-        </form>
-        <a href="/delete-item">
-            <button type="submit" id="delete-task-button">
-                <i class="fas fa-trash-alt"></i>
-                DELETE TASKS
-            </button>
-        </a>
-        <% var monthNames = ["JAN", "FEB", "MAR", "APR", "MaAY", "JUN", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"]; %>
-        <div id="cards-container">
-            <% for(let i of todo_list) {%>
-                <div id="card">
-                    <div style="display: flex;">
-                        <input type="checkbox" name="isSelected" style="margin-top: 15%;" id="checkbox-button">
-                        <div id="card-info">
-                            <h3> <%= i.description %> </h3>
-                            <p>
-                                <i class="far fa-calendar-alt"></i>
-                                <%= monthNames[i.due_date.getMonth()] %>
-                                <%= i.due_date.getDate() %>
-                                <span>, &nbsp; </span>
-                                <%= i.due_date.getFullYear() %>
-                            </p>
-                        </div>
-                    </div>
-                    <button type="submit" id="card-button"> TASK </button>
-                </div>
-            <% } %>    
+            <section id="due-date">
+                <h3>DUE DATE</h3>
+                <input type="date" name="due_date" placeholder="dd/mm/yyyy" required>
+            </section>
         </div>
-        <script src="/js/delete_items.js"></script>
-    </body>
+        <button type="submit" id="add-task-button">
+            <i class="fas fa-plus"></i>
+            ADD TASK
+        </button>
+    </form>
+    <form action="/delete-items" method="POST" style="width: fit-content; height: fit-content;">
+        <button type="submit" id="delete-task-button">
+            <i class="fas fa-trash-alt"></i>
+            DELETE TASKS
+        </button>
+    </form>
+    <% var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"]; %>
+    <div id="cards-container">
+        <% for(let i of todo_list) {%>
+        <div id="card">
+            <div style="display: flex;">
+                    <form action="/select-list?id=<%= i._id %>" method="POST">
+                        <input type="checkbox" class="checkbox-button" style="margin-top: 15%;" onchange="form.submit()">
+                    </form>
+                <div id="card-info">
+                    <h3> <%= i.description %> </h3>
+                    <p>
+                        <i class="far fa-calendar-alt"></i>
+                        <%= monthNames[i.due_date.getMonth()] %>
+                        <%= i.due_date.getDate() %>
+                        <span>, &nbsp; </span>
+                        <%= i.due_date.getFullYear() %>
+                    </p>
+                </div>
+            </div>
+            <div id="card-button"> TASK </div>
+        </div>
+        <% } %>
+    </div>
+</body>
 </html>

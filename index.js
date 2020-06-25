@@ -3,6 +3,8 @@ const port = 8000;
 
 const db = require("./config/mongoose");
 const TODOList = require("./models/todo_list");
+// const selectedList = require("./assets/js/delete_items");
+// const selectedList = require("./views/index");
 
 const app = express();
 
@@ -28,11 +30,32 @@ app.get("/", function(request, response){
 app.post("/new-item", function(request, response){
     TODOList.create(request.body, function(error, newItem){
         if(error){
-            console.log("Error in creating a new item");
+            console.log("Error in creating a new item", error);
             return;
         }
         return response.redirect("back");
     });
+});
+
+app.post("/select-list", function(request, response){
+    let id = request.query.id;
+    TODOList.findByIdAndUpdate(id, {is_selected: !this.is_selected}, function(error, item){
+        if(error){
+            console.log("Error in marking the list item");
+            return;
+        }
+        return response.redirect("back");
+    });
+});
+
+app.post("/delete-items", function(request, response){
+    TODOList.deleteMany({is_selected : true}, function(error, result){
+        if(error){
+            console.log("Error in deleting items");
+            return;
+        }
+    });
+    return response.redirect("/");
 });
 
 app.listen(port, function(error){

@@ -8,8 +8,8 @@ const listItemSchema = new mongoose.Schema({
     due_date: {
         type: Date,
         required: true
-    } ,
-    isSelected: {
+    },
+    is_selected: {
         type: Boolean,
         default: false
     }
