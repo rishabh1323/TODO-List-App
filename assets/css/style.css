@@ -125,7 +125,6 @@ hr{
     cursor: pointer;
     position: relative;
     top: 30%;
-    
 }
 #card-info{
     position: relative;
@@ -141,13 +140,13 @@ hr{
     font-family: sans-serif;
     font-size: 0.9rem;
 }
-#card-button{
+.card-button{
     position: relative;
     height: 2.5rem;
     width: 7rem;
-    margin-top: -1.5rem;
+    margin-top: -1rem;
     color: white;
-    background-color: purple;
+    background-color: steelblue;
     border: none;
     border-radius: 0.2rem;
     font-size: 1rem;
@@ -156,7 +155,7 @@ hr{
     justify-content: center;
     align-items: center;
 }
-#card-button:hover{
+.card-button:hover{
     cursor: default;
     transform: scale(1.01);
     box-shadow: 0px 0px 3px 0.5px rgb(84, 169, 238);

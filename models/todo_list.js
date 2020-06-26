@@ -12,6 +12,10 @@ const listItemSchema = new mongoose.Schema({
     is_selected: {
         type: Boolean,
         default: false
+    },
+    category: {
+        type: String,
+        required: true
     }
 });
 

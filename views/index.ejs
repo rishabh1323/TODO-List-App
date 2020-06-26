@@ -8,14 +8,14 @@
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="https://user-images.githubusercontent.com/1711854/28282651-29665d66-6af9-11e7-96d1-e9346a836007.png" type="image/x-icon">
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header id="body-header">
         <h1>TODO App</h1>
     </header>
-    <form action="/new-item" method="POST">
+    <form action="/new-item" method="POST" id="input-form">
         <section id="description">
             <h3>DESCRIPTION</h3>
             <input type="text" name="description" placeholder="What do you need to do?" required>
@@ -24,7 +24,15 @@
             <section id="category">
                 <h3>CATEGORY</h3>
                 <span>Choose a category</span>
-                <i class="fas fa-sort-down" id="drop-down-button"></i>
+                <!-- <i class="fas fa-sort-down" id="drop-down-button"></i> -->
+                <select name="category" id="category-dropdown" form="input-form" required>
+                    <option disabled> Choose a Value </option>
+                    <option value="Personal" data-color="steelblue"> Personal </option>
+                    <option value="School" data-color="crimson"> School </option>
+                    <option value="Work" data-color="darkorchid"> Work </option>
+                    <option value="Cleaning" data-color="brown"> Cleaning </option>
+                    <option value="Other" data-color="saddlebrown"> Other </option>
+                </select>
             </section>
             <section id="due-date">
                 <h3>DUE DATE</h3>
@@ -61,9 +69,10 @@
                     </p>
                 </div>
             </div>
-            <div id="card-button"> TASK </div>
+            <div class="card-button"> <%= i.category.toUpperCase() %> </div>
         </div>
         <% } %>
     </div>
+    <script src="/js/script.js"></script>
 </body>
 </html>
