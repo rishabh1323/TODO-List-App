@@ -8,23 +8,27 @@
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="https://user-images.githubusercontent.com/1711854/28282651-29665d66-6af9-11e7-96d1-e9346a836007.png" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- The app heading -->
     <header id="body-header">
         <h1>TODO App</h1>
     </header>
+    <!-- First form to input event data and submit -->
     <form action="/new-item" method="POST" id="input-form">
+        <!-- Description of event -->
         <section id="description">
             <h3>DESCRIPTION</h3>
             <input type="text" name="description" placeholder="What do you need to do?" required>
         </section>
+        <!-- Div to contain Category and Due Date -->
         <div id="multisection-container">
+            <!-- Category of the event -->
             <section id="category">
                 <h3>CATEGORY</h3>
                 <span>Choose a category</span>
-                <!-- <i class="fas fa-sort-down" id="drop-down-button"></i> -->
+                <!-- Dropdown menu with options -->
                 <select name="category" id="category-dropdown" form="input-form" required>
                     <option disabled> Choose a Value </option>
                     <option value="Personal" data-color="steelblue"> Personal </option>
@@ -34,45 +38,57 @@
                     <option value="Other" data-color="saddlebrown"> Other </option>
                 </select>
             </section>
+            <!-- Due Date of event -->
             <section id="due-date">
                 <h3>DUE DATE</h3>
                 <input type="date" name="due_date" placeholder="dd/mm/yyyy" required>
             </section>
         </div>
+        <!-- Add Task button to submit the form -->
         <button type="submit" id="add-task-button">
             <i class="fas fa-plus"></i>
             ADD TASK
         </button>
-    </form>
-    <form action="/delete-items" method="POST" style="width: fit-content; height: fit-content;">
-        <button type="submit" id="delete-task-button">
+        <!-- Delete task button - part of next form - kept here for better CSS styling -->
+        <button type="submit" id="delete-task-button" form="list-item-form">
             <i class="fas fa-trash-alt"></i>
             DELETE TASKS
         </button>
     </form>
-    <% var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"]; %>
-    <div id="cards-container">
-        <% for(let i of todo_list) {%>
-        <div id="card">
-            <div style="display: flex;">
-                    <form action="/select-list?id=<%= i._id %>" method="POST">
-                        <input type="checkbox" class="checkbox-button" style="margin-top: 15%;" onchange="form.submit()">
-                    </form>
-                <div id="card-info">
-                    <h3> <%= i.description %> </h3>
-                    <p>
-                        <i class="far fa-calendar-alt"></i>
-                        <%= monthNames[i.due_date.getMonth()] %>
-                        <%= i.due_date.getDate() %>
-                        <span>, &nbsp; </span>
-                        <%= i.due_date.getFullYear() %>
-                    </p>
+    <!-- Second form containing list items with checkboxes -->
+    <form action="/delete-items" method="POST" style="width: fit-content; height: fit-content;" id="list-item-form">
+        <!-- monthNames used to style the date format better -->
+        <% var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"]; %>
+        <!-- Container to contain all the list item cards -->
+        <div id="cards-container">
+            <!-- For loop for displaying all the list items -->
+            <% for(let i of todo_list) {%>
+            <!-- Div for a single card item -->
+            <div id="card">
+                <!-- Div for the checkbox and the text content -->
+                <div style="display: flex;">
+                    <!-- Checkbox input -->
+                    <input type="checkbox" class="checkbox-button" style="margin-top: 15%;" name="checked" value="<%= i._id %>">
+                    <!-- Div for text content of the card -->
+                    <div id="card-info">
+                        <!-- Description of the event -->
+                        <h3> <%= i.description %> </h3>
+                        <!-- Due Date of the event -->
+                        <p>
+                            <i class="far fa-calendar-alt"></i>
+                            <%= monthNames[i.due_date.getMonth()] %>
+                            <%= i.due_date.getDate() %>
+                            <span>, &nbsp; </span>
+                            <%= i.due_date.getFullYear() %>
+                        </p>
+                    </div>
                 </div>
+                <!-- Div for a dummy button containing the event category -->
+                <div class="card-button"> <%= i.category.toUpperCase() %> </div>
             </div>
-            <div class="card-button"> <%= i.category.toUpperCase() %> </div>
+            <!-- For loop ends here -->
+            <% } %>
         </div>
-        <% } %>
-    </div>
-    <script src="/js/script.js"></script>
+    </form>
 </body>
 </html>

@@ -1,17 +1,21 @@
+/* The whole body tag */
 body{
     width: 50%;
     position: relative;
     left: 25%;
 }
+/* Th3 tag for the app heading */
 h3{
     color: gray;
     font-family: sans-serif;
     font-size: 0.9rem;
     margin: 0.25rem 0rem;
 }
+/* hr tag for horizontal rule between sections */
 hr{
     margin: 0.25rem;
 }
+/* Conatins the app heading */
 #body-header{
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
@@ -19,14 +23,17 @@ hr{
     font-size: 1.5rem;
     letter-spacing: 0.1rem;
 }
+/* Description of the event */
 #description{
     padding: 0.3rem;
     border-top: 1.5px solid lightgray;
 }
+/* Description - hover event */
 #description:hover{
     background-color: lightgray;
     cursor: pointer;
 }
+/* Input tag to take description of the event */
 #description input{
     font-size: 1.1rem;
     width: 90%;
@@ -34,12 +41,14 @@ hr{
     border: none;
     background-color: transparent;
 }
+/* Conatains the category and due date sections */
 #multisection-container{
     display: flex;
     justify-content: space-between;
     border-top: 1.5px solid lightgray;
     border-bottom: 1.5px solid lightgray;
 }
+/* The type of event */
 #category{
     font-family: sans-serif;
     color: dimgray;
@@ -49,29 +58,29 @@ hr{
     border-right: 0.1rem solid lightgray;
     padding: 0.5rem;
 }
+/* Category - hover event */
 #category:hover{
     background-color: lightgray;
     cursor: pointer;
 }
-#drop-down-button{
-    font-size: 1.2rem;
-    position: relative;
-    left: 40%;
-}
+/* Due Date of the event */
 #due-date{
     width: 47%;
     padding: 0.5rem 0.3rem 0.5rem 2.5rem;
 }
+/* Due Date - hover event */
 #due-date:hover{
     background-color: lightgray;
     cursor: pointer;
 }
+/* Input tag to take date */
 #due-date input{
     border: none;
     font-family: sans-serif;
     color: dimgray;
     background-color: transparent;
 }
+/* Add Task button to add a item to list */
 #add-task-button{
     height: 3.1rem;
     width: 10rem;
@@ -84,6 +93,7 @@ hr{
     color: white;
     font-size: 1rem;
 }
+/* Add Task button - hover event */
 #add-task-button:hover{
     cursor: pointer;
     transform: scale(1.01);
@@ -91,19 +101,20 @@ hr{
     box-shadow: 0px 0px 3px 0.2px rgb(84, 169, 238);
     transition: all ease-in-out 0.3s;
 }
+/* Delete Task button to delete the selected items */
 #delete-task-button{
     height:3.1rem;
     width: 10rem;
-    margin: 2rem;
-    position: fixed;
-    left: 49%;
-    bottom: 51.3%;
+    margin: 1rem;
+    position: relative;
+    left: 19%;
     border: none;
     background-color: #EE351E;
     border-radius: 0.15rem;
     color: white;
     font-size: 1rem;
 }
+/* Delete Task button - hover event */
 #delete-task-button:hover{
     cursor: pointer;
     transform: scale(1.01);
@@ -111,35 +122,43 @@ hr{
     box-shadow: 0px 0px 3px 0.2px rgb(84, 169, 238);
     transition: all ease-in-out 0.3s;
 }
+/* A card div containing a single list item */
 #card{
+    width: 50vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-top: 1.5px solid lightgray;
     padding: 0.5rem 0rem;
 }
+/* Checkbox button to select a list item */
 #checkbox-button{
     cursor: default;
 }
+/* Input tag for checkbox in a list item  */
 #card input{
     cursor: pointer;
     position: relative;
     top: 30%;
 }
+/* Contains text content of a list item */
 #card-info{
     position: relative;
     left: 5%;
     line-height: 0.5rem;
     margin: 0.5rem 0rem;
 }
+/* Custom styling to h3 tag of card-info */
 #card-info h3{
     font-size: 1rem;
 }
+/* Custom styling to p tag of card-info */
 #card-info p{
     color: #BFC1C2;
     font-family: sans-serif;
     font-size: 0.9rem;
 }
+/* Dummy button to display the category of the event  */
 .card-button{
     position: relative;
     height: 2.5rem;
@@ -155,6 +174,7 @@ hr{
     justify-content: center;
     align-items: center;
 }
+/* Dummy card-button - hover event */
 .card-button:hover{
     cursor: default;
     transform: scale(1.01);
